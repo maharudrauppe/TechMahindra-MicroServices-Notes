@@ -1,0 +1,29 @@
+eureka:
+  client:
+    #    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:1234/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+
+server:
+  port: 1238
+
+spring:
+  application:
+    name: Zuul Server
+zuul:
+  ignoredServices: '*'
+  routes:
+    MICROSERVICE1:
+      path: /SERVICE1/**
+      service-id: MICROSERVICE1
+      strip-prefix: false
+    MICROSERVICE2:
+      path: /SERVICE2/**
+      service-id: MICROSERVICE2
+      strip-prefix: false

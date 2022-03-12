@@ -1,0 +1,15 @@
+server:
+  servlet:
+    context-path: /SERVICE1
+spring:
+  application:
+    name: Config Server
+  cloud:
+    config:
+      uri:  http://localhost:8889
+      enabled: true
+      fail-fast: true
+ping-server:
+  ribbon:
+    eureka:
+      enabled: false
